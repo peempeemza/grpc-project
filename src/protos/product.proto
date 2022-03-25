@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package crm;
+
+service ProductService {
+  rpc FindOneProduct (ProductById) returns (Product);
+  rpc FindManyProduct (Empty) returns (Products);
+}
+
+message ProductById {
+  int32 product_id = 1;
+}
+
+message Product {
+  int32 product_id = 1;
+  string product_code = 2;
+  string product_name = 3;
+  double product_price = 4;
+}
+
+message Empty {}
+
+message Products {
+  repeated Product products = 1;
+}

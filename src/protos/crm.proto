@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package crm;
+
+
+service CrmService {
+    rpc FindOne (CrmById) returns (Crm);
+    rpc FindMany (stream CrmById) returns (stream Crm);
+  }
+  
+  message CrmById {
+    int32 id = 1;
+  }
+  
+  message Crm {
+    int32 id = 1;
+    string name = 2;
+  }
